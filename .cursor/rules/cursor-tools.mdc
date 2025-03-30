@@ -50,10 +50,10 @@ when using web for complex queries suggest writing the output to a file somewher
 --max-tokens=<number>: Maximum tokens for response
 
 **Repository Context:**
-`cursor-tools repo "<your question>" [--subdir=<path>]` - Get context-aware answers about this repository using Google Gemini (e.g., `cursor-tools repo "explain authentication flow"`). Use the optional `--subdir` parameter to analyze a specific subdirectory instead of the entire repository (e.g., `cursor-tools repo "explain the code structure" --subdir=src/components`)
+`cursor-tools repo "<your question>" [--subdir="<path>"]` - Get context-aware answers about this repository using Google Gemini (e.g., `cursor-tools repo "explain authentication flow"`). Use the optional `--subdir` parameter to analyze a specific subdirectory instead of the entire repository (e.g., `cursor-tools repo "explain the code structure" --subdir="src/components"`)
 
 **Documentation Generation:**
-`cursor-tools doc [options]` - Generate comprehensive documentation for this repository (e.g., `cursor-tools doc --output docs.md`)
+`cursor-tools doc [options]` - Generate comprehensive documentation for this repository (e.g., `cursor-tools doc --output "docs.md"`)
 when using doc for remote repos suggest writing the output to a file somewhere like local-docs/<repo-name>.md.
 
 **GitHub Information:**
@@ -71,7 +71,7 @@ when using doc for remote repos suggest writing the output to a file somewhere l
 --provider=<provider>: AI provider to use (only Gemini is supported)
 --model=<model>: Model to use for video analysis (default: gemini-2.0-flash)
 --max-tokens=<number>: Maximum tokens for response (default: 8192)
---save-to=<file path>: Save command output to a file
+--save-to="<file path>": Save command output to a file
 
 **Note:** The YouTube command requires a `GEMINI_API_KEY` to be set in your environment or .cursor-tools.env file.
 
@@ -121,7 +121,7 @@ The `search` command helps you discover servers in the MCP Marketplace based on 
 --provider=<provider>: AI provider to use (openai, anthropic, perplexity, gemini, or openrouter). If provider is not specified, the default provider for that task will be used.
 --model=<model name>: Specify an alternative AI model to use. If model is not specified, the provider's default model for that task will be used.
 --max-tokens=<number>: Control response length
---save-to=<file path>: Save command output to a file (in *addition* to displaying it)
+--save-to="<file path>": Save command output to a file (in *addition* to displaying it)
 --help: View all available options (help is not fully implemented yet)
 
 **Repository Command Options:**
@@ -142,14 +142,14 @@ The `search` command helps you discover servers in the MCP Marketplace based on 
 --console: Capture browser console logs (enabled by default, use --no-console to disable)
 --html: Capture page HTML content (disabled by default)
 --network: Capture network activity (enabled by default, use --no-network to disable)
---screenshot=<file path>: Save a screenshot of the page
+--screenshot="<file path>": Save a screenshot of the page
 --timeout=<milliseconds>: Set navigation timeout (default: 120000ms for Stagehand operations, 30000ms for navigation)
 --viewport=<width>x<height>: Set viewport size (e.g., 1280x720). When using --connect-to, viewport is only changed if this option is explicitly provided
 --headless: Run browser in headless mode (default: true)
 --no-headless: Show browser UI (non-headless mode) for debugging
 --connect-to=<port>: Connect to existing Chrome instance. Special values: 'current' (use existing page), 'reload-current' (refresh existing page)
 --wait=<time:duration or selector:css-selector>: Wait after page load (e.g., 'time:5s', 'selector:#element-id')
---video=<directory>: Save a video recording (1280x720 resolution, timestamped subdirectory). Not available when using --connect-to
+--video="<directory>": Save a video recording (1280x720 resolution, timestamped subdirectory). Not available when using --connect-to
 --url=<url>: Required for `act`, `observe`, and `extract` commands. Url to navigate to before the main command or one of the special values 'current' (to stay on the current page without navigating or reloading) or 'reload-current' (to reload the current page)
 --evaluate=<string>: JavaScript code to execute in the browser before the main command
 
@@ -160,9 +160,9 @@ Perplexity is a nickname for cursor-tools web
 Stagehand is a nickname for cursor-tools browser
 
 **Xcode Commands:**
-`cursor-tools xcode build [buildPath=<path>] [destination=<destination>]` - Build Xcode project and report errors.
+`cursor-tools xcode build [buildPath="<path>"] [destination=<destination>]` - Build Xcode project and report errors.
 **Build Command Options:**
---buildPath=<path>: (Optional) Specifies a custom directory for derived build data. Defaults to ./.build/DerivedData.
+--buildPath="<path>": (Optional) Specifies a custom directory for derived build data. Defaults to "./.build/DerivedData".
 --destination=<destination>: (Optional) Specifies the destination for building the app (e.g., 'platform=iOS Simulator,name=iPhone 16 Pro'). Defaults to 'platform=iOS Simulator,name=iPhone 16 Pro'.
 
 `cursor-tools xcode run [destination=<destination>]` - Build and run the Xcode project on a simulator.
